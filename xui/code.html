@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>머니위클리 MoneyWeekly</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Public+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,600;0,8..60,700;1,8..60,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-secondary-fixed-variant":"#2d486d","surface-container-high":"#dee8ff","surface-container-low":"#f0f3ff","error":"#ba1a1a","primary-fixed-dim":"#aac7ff","on-tertiary-container":"#9ad4ff","inverse-primary":"#aac7ff","inverse-surface":"#263143","surface-tint":"#255dac","on-primary-fixed":"#001b3e","on-tertiary":"#ffffff","on-primary":"#ffffff","surface-bright":"#f9f9ff","on-tertiary-fixed":"#001e2f","surface-dim":"#cfdaf2","tertiary-container":"#005d86","primary-fixed":"#d7e3ff","outline":"#737782","on-secondary-fixed":"#001c3b","on-primary-fixed-variant":"#00458e","on-secondary":"#ffffff","surface-container-highest":"#d8e3fb","tertiary-fixed":"#c9e6ff","primary":"#003f82","tertiary":"#004464","background":"#f9f9ff","error-container":"#ffdad6","secondary-container":"#b5d0fd","surface-container-lowest":"#ffffff","secondary":"#455f87","on-error-container":"#93000a","on-surface-variant":"#424751","outline-variant":"#c2c6d3","tertiary-fixed-dim":"#89ceff","on-tertiary-fixed-variant":"#004c6e","on-error":"#ffffff","surface-container":"#e7eeff","on-primary-container":"#b6ceff","on-surface":"#111c2d","secondary-fixed-dim":"#adc8f5","primary-container":"#1a56a4","on-background":"#111c2d","surface-variant":"#d8e3fb","on-secondary-container":"#3e5980","surface":"#f9f9ff","inverse-on-surface":"#ecf1ff","secondary-fixed":"#d5e3ff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"margin-desktop":"2.5rem","space-xl":"2rem","space-lg":"1.25rem","space-xs":"0.25rem","margin":"1rem","gutter":"1rem","space-md":"0.75rem","gutter-desktop":"1.5rem","space-sm":"0.5rem"},"fontFamily":{"title-lg":["Public Sans"],"data-metric-md":["Public Sans"],"body-md":["Public Sans"],"label-code":["JetBrains Mono"],"data-metric-lg":["Public Sans"],"headline-md":["\"Source Serif 4\""],"title-md":["Public Sans"],"headline-lg":["\"Source Serif 4\""],"body-sm":["Public Sans"],"body-lg":["Public Sans"],"headline-xl":["\"Source Serif 4\""],"label-sm":["Public Sans"]},"fontSize":{"title-lg":["1.125rem",{"lineHeight":"1.625rem","letterSpacing":"-0.01em","fontWeight":"700"}],"data-metric-md":["1.125rem",{"lineHeight":"1.375rem","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["0.875rem",{"lineHeight":"1.375rem","letterSpacing":"0em","fontWeight":"400"}],"label-code":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.02em","fontWeight":"500"}],"data-metric-lg":["1.5rem",{"lineHeight":"1.75rem","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["1.25rem",{"lineHeight":"1.75rem","letterSpacing":"-0.01em","fontWeight":"600"}],"title-md":["1rem",{"lineHeight":"1.5rem","letterSpacing":"-0.005em","fontWeight":"600"}],"headline-lg":["1.75rem",{"lineHeight":"2.25rem","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["0.75rem",{"lineHeight":"1.125rem","letterSpacing":"0.01em","fontWeight":"400"}],"body-lg":["1rem",{"lineHeight":"1.625rem","letterSpacing":"0em","fontWeight":"400"}],"headline-xl":["2.25rem",{"lineHeight":"2.75rem","letterSpacing":"-0.02em","fontWeight":"700"}],"label-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.03em","fontWeight":"600"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-28 w-full"><div class="h-10 bg-surface-container-low px-margin-desktop flex items-center justify-between font-label-code text-label-code"><div class="flex items-center gap-space-lg overflow-x-auto whitespace-nowrap py-1"><div class="flex items-center gap-space-sm"><span class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">MARKET SUMMARY</span><span class="text-outline-variant font-normal">|</span></div><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant font-semibold">KOSPI</span><span class="text-on-surface tabular-nums font-semibold">2,583.40</span><span class="text-error font-medium flex items-center gap-0.5">▲ +0.45%</span></div><span class="text-outline-variant font-normal">·</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant font-semibold">KOSDAQ</span><span class="text-on-surface tabular-nums font-semibold">752.10</span><span class="text-primary font-medium flex items-center gap-0.5">▼ -0.12%</span></div><span class="text-outline-variant font-normal">·</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant font-semibold">기준금리</span><span class="text-on-surface tabular-nums font-semibold">3.50%</span><span class="text-secondary font-medium">(동결)</span></div><span class="text-outline-variant font-normal">·</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant font-semibold">국고채 3년</span><span class="text-on-surface tabular-nums font-semibold">2.94%</span><span class="text-primary font-medium flex items-center gap-0.5">▼ -0.02%p</span></div><span class="text-outline-variant font-normal">·</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant font-semibold">원/달러</span><span class="text-on-surface tabular-nums font-semibold">1,348.50</span><span class="text-primary font-medium flex items-center gap-0.5">▼ -4.20원</span></div></div><div class="hidden xl:flex items-center gap-space-sm font-label-code text-label-sm text-on-surface-variant shrink-0 pl-space-md"><span class="material-symbols-outlined text-outline text-[16px]">schedule</span><span>2026.10.06 (월) 기준 · KRX 장마감</span></div></div><div class="h-[4.5rem] px-margin-desktop max-w-[1440px] mx-auto flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-xl"><div class="flex items-center gap-space-sm shrink-0"><img alt="MoneyWeekly Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UY7R4vaDdox0NhbHT4_pApaDRbxSi-VbiJDbphSnU17tH-u6p5wcFXfmQcDiUiavpm8_5shjtBOJKhfs5cACqqn7iB05IT7Gs5PFd5otqIn8YpueUg4DLyBRyZd-jYZ7TRh0EEZsQ9MhtbDWKQM-mljH3HVbzxaSUlE0dWk6AG6jUlyUYJ9fZ3h0fBZn4loWcwOxQqJcFhF7oWxhYG5ch71vcZ1oRA4yQE8yjy8Cw"/><span class="font-headline-md text-headline-md tracking-tight text-primary font-bold">MoneyWeekly</span></div><nav class="hidden lg:flex items-center gap-space-lg font-body-md text-body-md" data-active-classes="text-primary font-title-md font-bold"><a aria-current="page" class="transition-colors py-1 text-primary font-title-md font-bold" data-path="weekly-briefing" href="#">주간 브리핑</a><a class="text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="krx-top-10" href="#">KRX 관심도 TOP10</a><a class="text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="savings-comparison" href="#">예·적금 비교</a><a class="text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="market-indicators" href="#">마켓 인디케이터</a><a class="text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="watchlist" href="#">내 관심종목</a></nav></div><div class="flex items-center gap-space-md shrink-0"><div class="relative hidden sm:block w-56 xl:w-64"><input class="w-full bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-outline pl-9 pr-3 py-1.5 rounded-lg focus:outline-none focus:bg-surface-container transition-all" placeholder="종목명 / 6자리 코드 검색" type="text"/><span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span></div><button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right hidden md:block"><span class="font-title-md text-body-sm font-semibold text-on-surface leading-tight">김민지 연구원</span><span class="font-label-code text-label-sm text-on-surface-variant">Financial Intelligence</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBln74LCV0_QVnMc3rinqOqLFLncUopgRKiXoDL8HCReYTEze01ANTipfIr3EkAnss-1zaAWsjO5vGL8pMGp685jc3xHNIHzeZbpavkzWjDb4ASqf3QtyP-c8naGaRM3OfjAqP0XoLKCLSEtsKqt5e4Gd17lXm9R3vJey_8ZOhltq5TqpUneIZF4lgK-HVBB4x340JiydbdtPqZa0hQBdfamBwpnzMiVNxhbKL8S9I"/></div></div></div></div></header><main class="w-full pt-28 bg-background flex-1"><div class="max-w-[1440px] mx-auto px-margin-desktop py-space-xl"><div class="flex flex-col w-full">
+<!-- Editorial Header Strip / Date & Generation Meta -->
+<section class="bg-surface-container-lowest shadow-sm rounded-xl p-space-lg mb-space-xl flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-sm font-label-code text-label-code text-on-surface-variant">
+<span class="bg-primary/10 text-primary px-2 py-0.5 rounded font-bold uppercase tracking-wider">ISSUE NO. 2026-W41</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface font-semibold">2026.10.06 (월) KRX 장마감 기준</span>
+<span class="text-outline-variant">•</span>
+<span class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-[15px]">neurology</span>
+          Perplexity Sonar &amp; Claude 3.5 Sonnet 연합분석
+        </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight leading-snug">
+        10월 2주차 주간 금융 브리핑: 반도체·2차전지 거래량 폭증과 수급 쏠림 현상
+      </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        외국인 선물 순매수 전환 속 대형 성장주 중심의 거래량 변동계수(CV) 이상 급등 분석 및 주간 유동성 지표 총람
+      </p>
+</div>
+<!-- Actions & PDF Download Button Group -->
+<div class="flex items-center gap-space-sm shrink-0 self-start md:self-center">
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container text-body-sm font-title-md transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px] text-outline">refresh</span>
+<span>리포트 다시 생성</span>
+</button>
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary text-on-primary hover:bg-primary-container text-body-sm font-title-md font-semibold transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>PDF 리포트 다운로드</span>
+</button>
+</div>
+</section>
+<!-- Editorial Lead Columns (Financial Times Broadsheet Accent) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg mb-space-xl">
+<!-- Top 10 Hero Grid Section (8 Columns) -->
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<!-- Section Headline Bar -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm bg-surface-container-low px-space-md py-2.5 rounded-lg">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-error text-[22px]">local_fire_department</span>
+<h2 class="font-title-lg text-title-lg text-on-surface flex items-center gap-2">
+            이번 주 시장 관심도 TOP 10
+            <span class="font-label-code text-label-code text-on-surface-variant font-normal">(거래량 변동계수 CV 기준)</span>
+</h2>
+<div class="group relative flex items-center">
+<span class="material-symbols-outlined text-outline text-[16px] cursor-help">info</span>
+<div class="absolute left-0 bottom-full mb-1 hidden group-hover:block w-72 p-2.5 bg-inverse-surface text-inverse-on-surface text-body-sm rounded shadow-lg z-20 leading-relaxed font-body-sm">
+              관심도(CV, 변동계수)는 거래량이 평소 주간 평균 대비 얼마나 극심하게 출렁였는지를 측정한 통계값이며, 주가 상승이나 매수 추천을 의미하지 않습니다.
+            </div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-label-code text-label-code">
+<div class="inline-flex rounded-lg bg-surface-container p-0.5">
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface font-semibold shadow-xs" type="button">최근 거래일 ▾</button>
+<button class="px-2.5 py-1 rounded text-on-surface-variant hover:text-on-surface" type="button">주간 누적</button>
+</div>
+</div>
+</div>
+<!-- 2 Cols x 5 Rows Grid (Desktop 2-columns, Mobile 1-col) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<!-- Stock Card 1: SK하이닉스 -->
+<div class="group relative bg-surface-container-lowest hover:bg-surface-bright rounded-xl p-space-md shadow-sm transition-all duration-150 flex flex-col justify-between">
+<div class="flex items-start justify-between mb-2">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">SK하이닉스</span>
+<span class="font-label-code text-label-code text-outline">000660</span>
+<span class="bg-surface-container text-secondary px-1.5 py-0.2 rounded text-label-sm font-semibold">반도체</span>
+</div>
+<p class="font-label-code text-label-sm text-outline mt-0.5">MSCI 분기 리밸런싱 패시브 유입 지속</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-error font-label-code text-label-sm font-bold flex items-center">▲ 1</span>
+<button class="text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">star</span>
+</button>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<div class="flex flex-col">
+<span class="font-data-metric-lg text-data-metric-lg text-on-surface tabular-nums">189,500<span class="font-body-sm text-body-sm font-normal text-on-surface-variant ml-0.5">원</span></span>
+<span class="text-error font-label-code text-label-code font-semibold flex items-center">
+                +3.20%
+                <span class="text-on-surface-variant font-normal ml-1.5">전주비</span>
+</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-code text-body-sm text-on-surface tabular-nums font-semibold">2,644,120 주</span>
+<span class="font-label-code text-label-sm text-error font-medium">거래량 +26.4%</span>
+</div>
+</div>
+<!-- Sparkline Mini SVG -->
+<div class="w-full h-5 mt-2 text-error">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0,15 Q25,12 40,8 T70,5 T100,2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Stock Card 2: 삼성전자 -->
+<div class="group relative bg-surface-container-lowest hover:bg-surface-bright rounded-xl p-space-md shadow-sm transition-all duration-150 flex flex-col justify-between">
+<div class="flex items-start justify-between mb-2">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">삼성전자</span>
+<span class="font-label-code text-label-code text-outline">005930</span>
+<span class="bg-surface-container text-secondary px-1.5 py-0.2 rounded text-label-sm font-semibold">반도체</span>
+</div>
+<p class="font-label-code text-label-sm text-outline mt-0.5">HBM3E 12단 납품 퀄테스트 막바지</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-outline font-label-code text-label-sm font-medium">–</span>
+<button class="text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">star</span>
+</button>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<div class="flex flex-col">
+<span class="font-data-metric-lg text-data-metric-lg text-on-surface tabular-nums">61,200<span class="font-body-sm text-body-sm font-normal text-on-surface-variant ml-0.5">원</span></span>
+<span class="text-error font-label-code text-label-code font-semibold flex items-center">
+                +0.82%
+                <span class="text-on-surface-variant font-normal ml-1.5">전주비</span>
+</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-code text-body-sm text-on-surface tabular-nums font-semibold">12,672,890 주</span>
+<span class="font-label-code text-label-sm text-error font-medium">거래량 +10.2%</span>
+</div>
+</div>
+<div class="w-full h-5 mt-2 text-error">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0,18 Q30,16 55,10 T80,12 T100,6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Stock Card 3: 삼성전기 (거래량 폭증) -->
+<div class="group relative bg-surface-container-lowest hover:bg-surface-bright rounded-xl p-space-md shadow-sm transition-all duration-150 flex flex-col justify-between">
+<div class="flex items-start justify-between mb-2">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">삼성전기</span>
+<span class="font-label-code text-label-code text-outline">009150</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant px-1.5 py-0.2 rounded text-label-sm font-semibold">전자부품</span>
+</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="inline-flex items-center gap-0.5 bg-error/10 text-error px-1.5 py-0.2 rounded text-label-sm font-bold">폭증 🔥</span>
+<span class="font-label-code text-label-sm text-outline">FC-BGA 서버용 기판 수요 폭발</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-primary/10 text-primary font-label-code text-label-sm px-1.5 py-0.2 rounded font-bold">NEW</span>
+<button class="text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">star</span>
+</button>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<div class="flex flex-col">
+<span class="font-data-metric-lg text-data-metric-lg text-on-surface tabular-nums">142,500<span class="font-body-sm text-body-sm font-normal text-on-surface-variant ml-0.5">원</span></span>
+<span class="text-error font-label-code text-label-code font-semibold flex items-center">
+                +6.51%
+                <span class="text-on-surface-variant font-normal ml-1.5">전주비</span>
+</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-code text-body-sm text-on-surface tabular-nums font-semibold">727,450 주</span>
+<span class="font-label-code text-label-sm text-error font-bold">거래량 +94.8%</span>
+</div>
+</div>
+<div class="w-full h-5 mt-2 text-error">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0,19 Q35,16 60,6 T100,2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Stock Card 4: 삼성SDI (거래량 폭증) -->
+<div class="group relative bg-surface-container-lowest hover:bg-surface-bright rounded-xl p-space-md shadow-sm transition-all duration-150 flex flex-col justify-between">
+<div class="flex items-start justify-between mb-2">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">삼성SDI</span>
+<span class="font-label-code text-label-code text-outline">006400</span>
+<span class="bg-surface-container text-secondary px-1.5 py-0.2 rounded text-label-sm font-semibold">2차전지</span>
+</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="inline-flex items-center gap-0.5 bg-error/10 text-error px-1.5 py-0.2 rounded text-label-sm font-bold">폭증 🔥</span>
+<span class="font-label-code text-label-sm text-outline">전고체 파일럿 양산 라인 가동</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-error font-label-code text-label-sm font-bold flex items-center">▲ 3</span>
+<button class="text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">star</span>
+</button>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<div class="flex flex-col">
+<span class="font-data-metric-lg text-data-metric-lg text-on-surface tabular-nums">378,000<span class="font-body-sm text-body-sm font-normal text-on-surface-variant ml-0.5">원</span></span>
+<span class="text-error font-label-code text-label-code font-semibold flex items-center">
+                +9.07%
+                <span class="text-on-surface-variant font-normal ml-1.5">전주비</span>
+</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-code text-body-sm text-on-surface tabular-nums font-semibold">625,180 주</span>
+<span class="font-label-code text-label-sm text-error font-bold">거래량 +184.5%</span>
+</div>
+</div>
+<div class="w-full h-5 mt-2 text-error">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0,18 Q40,14 65,4 T100,1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Stock Card 5: LG전자 (거래량 폭증) -->
+<div class="group relative bg-surface-container-lowest hover:bg-surface-bright rounded-xl p-space-md shadow-sm transition-all duration-150 flex flex-col justify-between">
+<div class="flex items-start justify-between mb-2">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">LG전자</span>
+<span class="font-label-code text-label-code text-outline">066570</span>
+<span class="bg-surface-container text-secondary px-1.5 py-0.2 rounded text-label-sm font-semibold">가전/EV</span>
+</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="inline-flex items-center gap-0.5 bg-error/10 text-error px-1.5 py-0.2 rounded text-label-sm font-bold">폭증 🔥</span>
+<span class="font-label-code text-label-sm text-outline">VS 전장사업부 수주잔고 100조 돌파</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-error font-label-code text-label-sm font-bold flex items-center">▲ 4</span>
+<button class="text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">star</span>
+</button>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<div class="flex flex-col">
+<span class="font-data-metric-lg text-data-metric-lg text-on-surface tabular-nums">104,200<span class="font-body-sm text-body-sm font-normal text-on-surface-variant ml-0.5">원</span></span>
+<span class="text-error font-label-code text-label-code font-semibold flex items-center">
+                +7.87%
+                <span class="text-on-surface-variant font-normal ml-1.5">전주비</span>
+</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-code text-body-sm text-on-surface tabular-nums font-semibold">1,205,300 주</span>
+<span class="font-label-code text-label-sm text-error font-bold">거래량 +229.8%</span>
+</div>
+</div>
+<div class="w-full h-5 mt-2 text-error">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0,19 Q30,17 50,11 T100,2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Stock Card 6: 삼성전자우 -->
+<div class="group relative bg-surface-container-lowest hover:bg-surface-bright rounded-xl p-space-md shadow-sm transition-all duration-150 flex flex-col justify-between">
+<div class="flex items-start justify-between mb-2">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">삼성전자우</span>
+<span class="font-label-code text-label-code text-outline">005935</span>
+<span class="bg-surface-container-low text-on-surface-variant px-1.5 py-0.2 rounded text-label-sm">보통주 연계</span>
+</div>
+<p class="font-label-code text-label-sm text-outline mt-0.5">배당 수익률 매력 및 갭 축소 국면</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-primary font-label-code text-label-sm font-semibold flex items-center">▼ 2</span>
+<button class="text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">star</span>
+</button>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<div class="flex flex-col">
+<span class="font-data-metric-lg text-data-metric-lg text-on-surface tabular-nums">50,100<span class="font-body-sm text-body-sm font-normal text-on-surface-variant ml-0.5">원</span></span>
+<span class="text-primary font-label-code text-label-code font-semibold flex items-center">
+                -0.40%
+                <span class="text-on-surface-variant font-normal ml-1.5">전주비</span>
+</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-code text-body-sm text-on-surface tabular-nums font-semibold">2,365,000 주</span>
+<span class="font-label-code text-label-sm text-primary font-medium">거래량 -7.5%</span>
+</div>
+</div>
+<div class="w-full h-5 mt-2 text-primary">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0,5 Q30,7 50,12 T100,16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Stock Card 7: 한화에어로스페이스 -->
+<div class="group relative bg-surface-container-lowest hover:bg-surface-bright rounded-xl p-space-md shadow-sm transition-all duration-150 flex flex-col justify-between">
+<div class="flex items-start justify-between mb-2">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">한화에어로스페이스</span>
+<span class="font-label-code text-label-code text-outline">012450</span>
+<span class="bg-surface-container text-secondary px-1.5 py-0.2 rounded text-label-sm font-semibold">방산</span>
+</div>
+<p class="font-label-code text-label-sm text-outline mt-0.5">루마니아 K9 수주 본계약 체결 가시화</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-outline font-label-code text-label-sm font-medium">–</span>
+<button class="text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">star</span>
+</button>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<div class="flex flex-col">
+<span class="font-data-metric-lg text-data-metric-lg text-on-surface tabular-nums">342,000<span class="font-body-sm text-body-sm font-normal text-on-surface-variant ml-0.5">원</span></span>
+<span class="text-error font-label-code text-label-code font-semibold flex items-center">
+                +4.10%
+                <span class="text-on-surface-variant font-normal ml-1.5">전주비</span>
+</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-code text-body-sm text-on-surface tabular-nums font-semibold">134,220 주</span>
+<span class="font-label-code text-label-sm text-error font-medium">거래량 +18.0%</span>
+</div>
+</div>
+<div class="w-full h-5 mt-2 text-error">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0,17 Q30,14 60,8 T100,4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Stock Card 8: 두산에너빌리티 -->
+<div class="group relative bg-surface-container-lowest hover:bg-surface-bright rounded-xl p-space-md shadow-sm transition-all duration-150 flex flex-col justify-between">
+<div class="flex items-start justify-between mb-2">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">두산에너빌리티</span>
+<span class="font-label-code text-label-code text-outline">034020</span>
+<span class="bg-surface-container text-secondary px-1.5 py-0.2 rounded text-label-sm font-semibold">원전</span>
+</div>
+<p class="font-label-code text-label-sm text-outline mt-0.5">체코 신규 원전 EPC 세부단가 협상 순항</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-primary font-label-code text-label-sm font-semibold flex items-center">▼ 1</span>
+<button class="text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">star</span>
+</button>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<div class="flex flex-col">
+<span class="font-data-metric-lg text-data-metric-lg text-on-surface tabular-nums">20,400<span class="font-body-sm text-body-sm font-normal text-on-surface-variant ml-0.5">원</span></span>
+<span class="text-error font-label-code text-label-code font-semibold flex items-center">
+                +1.80%
+                <span class="text-on-surface-variant font-normal ml-1.5">전주비</span>
+</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-code text-body-sm text-on-surface tabular-nums font-semibold">1,952,100 주</span>
+<span class="font-label-code text-label-sm text-error font-medium">거래량 +32.0%</span>
+</div>
+</div>
+<div class="w-full h-5 mt-2 text-error">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0,15 Q30,12 60,11 T100,7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Stock Card 9: LG에너지솔루션 (거래량 폭증) -->
+<div class="group relative bg-surface-container-lowest hover:bg-surface-bright rounded-xl p-space-md shadow-sm transition-all duration-150 flex flex-col justify-between">
+<div class="flex items-start justify-between mb-2">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">LG에너지솔루션</span>
+<span class="font-label-code text-label-code text-outline">373220</span>
+<span class="bg-surface-container text-secondary px-1.5 py-0.2 rounded text-label-sm font-semibold">2차전지</span>
+</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="inline-flex items-center gap-0.5 bg-error/10 text-error px-1.5 py-0.2 rounded text-label-sm font-bold">폭증 🔥</span>
+<span class="font-label-code text-label-sm text-outline">북미 완성차 합작 4680 공급 가시화</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-primary/10 text-primary font-label-code text-label-sm px-1.5 py-0.2 rounded font-bold">NEW</span>
+<button class="text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">star</span>
+</button>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<div class="flex flex-col">
+<span class="font-data-metric-lg text-data-metric-lg text-on-surface tabular-nums">412,000<span class="font-body-sm text-body-sm font-normal text-on-surface-variant ml-0.5">원</span></span>
+<span class="text-error font-label-code text-label-code font-semibold flex items-center">
+                +5.12%
+                <span class="text-on-surface-variant font-normal ml-1.5">전주비</span>
+</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-code text-body-sm text-on-surface tabular-nums font-semibold">438,200 주</span>
+<span class="font-label-code text-label-sm text-error font-bold">거래량 +468.0%</span>
+</div>
+</div>
+<div class="w-full h-5 mt-2 text-error">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0,19 Q40,16 65,5 T100,2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Stock Card 10: 삼성바이오로직스 -->
+<div class="group relative bg-surface-container-lowest hover:bg-surface-bright rounded-xl p-space-md shadow-sm transition-all duration-150 flex flex-col justify-between">
+<div class="flex items-start justify-between mb-2">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">삼성바이오로직스</span>
+<span class="font-label-code text-label-code text-outline">207940</span>
+<span class="bg-surface-container text-secondary px-1.5 py-0.2 rounded text-label-sm font-semibold">바이오</span>
+</div>
+<p class="font-label-code text-label-sm text-outline mt-0.5">5공장 증설 진척도 및 대형 CMO 수주</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-outline font-label-code text-label-sm font-medium">–</span>
+<button class="text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">star</span>
+</button>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<div class="flex flex-col">
+<span class="font-data-metric-lg text-data-metric-lg text-on-surface tabular-nums">985,000<span class="font-body-sm text-body-sm font-normal text-on-surface-variant ml-0.5">원</span></span>
+<span class="text-primary font-label-code text-label-code font-semibold flex items-center">
+                -0.60%
+                <span class="text-on-surface-variant font-normal ml-1.5">전주비</span>
+</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-code text-body-sm text-on-surface tabular-nums font-semibold">78,390 주</span>
+<span class="font-label-code text-label-sm text-error font-medium">거래량 +11.1%</span>
+</div>
+</div>
+<div class="w-full h-5 mt-2 text-primary">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0,6 Q30,9 60,11 T100,14" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Theme Flow Insight Banner -->
+<div class="p-space-md bg-secondary-container/40 rounded-xl flex items-start gap-space-sm text-body-sm text-on-secondary-container">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">lightbulb</span>
+<div class="flex-1">
+<span class="font-title-md font-bold text-on-surface mr-1">이번 주 테마 심층 인사이트:</span>
+<span>반도체(SK하이닉스·삼성전자)와 2차전지(삼성SDI·LG에너지솔루션)로 주간 외국인·기관 수급이 초집중되며, 코스피 전체 거래대금의 <strong>41.3%</strong>가 이 4대 핵심주에 쏠렸습니다. 중소형 테마주에서의 급격한 자금 이탈 현상에 유의하십시오.</span>
+<div class="mt-1 flex items-center gap-2 font-label-code text-label-sm text-on-surface-variant">
+<span>[근거 데이터: KRX 투자자별 순매수 데이터셋 / ECOS 주간 집계표]</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: AI Executive 3-Line Summary & Macro Editorial Box (4 Columns) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- 3-Line AI Executive Briefing Container (Financial Times Aesthetic) -->
+<div class="bg-surface-container-lowest shadow-sm rounded-xl p-space-lg flex flex-col justify-between">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">format_quote</span>
+<h3 class="font-headline-md text-headline-md text-primary font-bold">주간 3줄 브리핑</h3>
+</div>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-code text-label-sm px-2 py-0.5 rounded font-bold">
+              AI 신뢰도 98.4%
+            </span>
+</div>
+<!-- Editorial Bullet 1 -->
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-1">
+<div class="flex items-center gap-2 font-label-code text-label-sm text-primary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>01. 글로벌 금리와 기술주 변동성</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-snug">
+              미 연준(Fed)의 추가 빅컷 가능성 경계 심리 속에서, 국내 기술주는 하방 지지력을 확인한 뒤 <strong>거래량이 평시 대비 최대 468% 폭증</strong>하는 수급 집중 양상을 연출했습니다.
+            </p>
+</div>
+<!-- Editorial Bullet 2 -->
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-1">
+<div class="flex items-center gap-2 font-label-code text-label-sm text-primary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>02. 수신금리 동결 &amp; 파킹통장 반등</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-snug">
+              시중은행 1년 만기 정기예금 최고 금리는 <strong>연 3.75% 수준</strong>으로 횡보 중인 반면, 저축은행 파킹통장은 단기 자금 유치 경쟁으로 연 3.90%까지 우대금리가 역전되었습니다.
+            </p>
+</div>
+<!-- Editorial Bullet 3 -->
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-1">
+<div class="flex items-center gap-2 font-label-code text-label-sm text-primary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>03. 다음 주 핵심 이벤트 캘린더</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-snug">
+<strong>10월 12일 한국은행 금통위</strong> 기준금리 결정 발표와 주요 반도체 소부장 실적 프리뷰 공시를 앞두고 대형주 중심의 외국인 선물 리밸런싱 포지션을 예의주시해야 합니다.
+            </p>
+</div>
+</div>
+<div class="pt-space-md mt-space-md flex items-center justify-between font-label-code text-label-sm text-outline">
+<span>최종 업데이트: 10.06 18:30 KST</span>
+<span class="text-tertiary underline cursor-pointer">모델 검증 로그 열람</span>
+</div>
+</div>
+<!-- Broadsheet Style Photo/Infographic Feature -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-2">
+<div class="relative w-full h-44 rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="High-contrast editorial documentary photograph of the Korea Exchange trading floor in Seoul, displaying large glowing digital stock tickers in blue and red against modern trading desks, soft cinematic paper texture lighting, 35mm lens documentary look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAefNXO0IEVGat2E7vjue9VrBKFBV22ChfmbwubCo3ACHbyYpfz1a0XD6mVdr-Y-6zQtBMs9WvRJ28ELFLQgmX84JU-gYjIaAwb6k-fIkfbFr69wXsqPVtgFcgZlc23W5CdVBP49NZpElYVxC9GKLnnAEy3CecUPt88CGD0D9aGkh-GLCP3W6SUSGJ2En4XO9Q1DbbhwONlNl7p6OCcmoV46SsCL04eh2ZJJv7tJHY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-transparent flex items-end p-3">
+<span class="font-title-md text-title-md text-surface-bright font-bold">
+              "지수 횡보 속 수급 양극화... 대형주 편입 비중 67% 도달"
+            </span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          한국거래소 집계 결과, 외국인 순매수가 코스피 200 최상위 5개 종목에 91% 편중되며 중소형주와의 스프레드가 3개월래 최대치로 벌어졌습니다.
+        </p>
+</div>
+</div>
+</section>
+<!-- 2-Split Lower Body: Left Column (Macro & Watchlist) / Right Column (Deposits & DART Disclosures) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg mb-space-xl">
+<!-- Left Stage (6 Columns) -->
+<div class="lg:col-span-6 flex flex-col gap-space-lg">
+<!-- 1. Macro Indicators Card (ECOS) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">analytics</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">금리·환율 거시 인디케이터</h3>
+</div>
+<span class="font-label-code text-label-sm text-outline">한국은행 ECOS 공시</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-space-sm font-label-code">
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col justify-between">
+<span class="text-label-sm text-on-surface-variant font-medium">한국 기준금리</span>
+<div class="my-1">
+<span class="font-data-metric-lg text-data-metric-lg text-on-surface tabular-nums">3.50%</span>
+</div>
+<span class="text-label-sm text-secondary font-semibold">동결 유지 (13연속)</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col justify-between">
+<span class="text-label-sm text-on-surface-variant font-medium">국고채 3년물</span>
+<div class="my-1">
+<span class="font-data-metric-lg text-data-metric-lg text-on-surface tabular-nums">2.94%</span>
+</div>
+<span class="text-label-sm text-primary font-semibold flex items-center">▼ -0.02%p</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col justify-between">
+<span class="text-label-sm text-on-surface-variant font-medium">국고채 10년물</span>
+<div class="my-1">
+<span class="font-data-metric-lg text-data-metric-lg text-on-surface tabular-nums">3.05%</span>
+</div>
+<span class="text-label-sm text-primary font-semibold flex items-center">▼ -0.01%p</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col justify-between">
+<span class="text-label-sm text-on-surface-variant font-medium">원/달러 환율</span>
+<div class="my-1">
+<span class="font-data-metric-lg text-data-metric-lg text-on-surface tabular-nums">1,348.50</span>
+</div>
+<span class="text-label-sm text-primary font-semibold flex items-center">▼ -4.20원</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col justify-between">
+<span class="text-label-sm text-on-surface-variant font-medium">CD 91일물</span>
+<div class="my-1">
+<span class="font-data-metric-lg text-data-metric-lg text-on-surface tabular-nums">3.52%</span>
+</div>
+<span class="text-label-sm text-secondary font-semibold">변동 없음</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col justify-between">
+<span class="text-label-sm text-on-surface-variant font-medium">WTI 원유(배럴)</span>
+<div class="my-1">
+<span class="font-data-metric-lg text-data-metric-lg text-on-surface tabular-nums">$74.38</span>
+</div>
+<span class="text-label-sm text-error font-semibold flex items-center">▲ +1.15%</span>
+</div>
+</div>
+<div class="mt-space-md p-space-sm bg-surface-container rounded-lg font-body-sm text-body-sm text-on-surface-variant flex items-center justify-between">
+<span>차기 한국은행 금통위 본회의: <strong>2026.10.12 (목) 09:00 KST</strong></span>
+<span class="font-label-code text-label-sm text-primary font-bold">D-6</span>
+</div>
+</div>
+<!-- 2. Watchlist Status Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">bookmarks</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">김민지 연구원의 관심종목 포트폴리오</h3>
+</div>
+<button class="font-label-code text-label-sm text-primary font-bold hover:underline" type="button">관리하기 →</button>
+</div>
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between p-space-sm bg-surface-container-low hover:bg-surface-container rounded-lg transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-amber-500 text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-semibold">SK하이닉스</span>
+<span class="font-label-code text-label-sm text-outline">000660 · 반도체</span>
+</div>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-code text-body-md font-bold text-on-surface tabular-nums">189,500원</span>
+<span class="font-label-code text-label-sm font-semibold text-error">+3.20%</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-space-sm bg-surface-container-low hover:bg-surface-container rounded-lg transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-amber-500 text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-semibold">삼성SDI</span>
+<span class="font-label-code text-label-sm text-outline">006400 · 2차전지</span>
+</div>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-code text-body-md font-bold text-on-surface tabular-nums">378,000원</span>
+<span class="font-label-code text-label-sm font-semibold text-error">+9.07%</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-space-sm bg-surface-container-low hover:bg-surface-container rounded-lg transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-amber-500 text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-semibold">현대차</span>
+<span class="font-label-code text-label-sm text-outline">005380 · 자동차</span>
+</div>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-code text-body-md font-bold text-on-surface tabular-nums">243,500원</span>
+<span class="font-label-code text-label-sm font-semibold text-primary">-1.22%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Stage (6 Columns) -->
+<div class="lg:col-span-6 flex flex-col gap-space-lg">
+<!-- 1. Best Savings & Deposits TOP 5 (FINE API) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">savings</span>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface">최고 금리 예·적금 TOP 5</h3>
+<p class="font-label-code text-label-sm text-outline">12개월 만기 세전 기준 · 금감원 금융상품통합비교공시</p>
+</div>
+</div>
+<a class="font-label-code text-label-sm text-primary font-bold hover:underline" href="#">전체 비교 →</a>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-code text-label-sm uppercase">
+<th class="py-2 px-3 rounded-l">금융기관</th>
+<th class="py-2 px-2">상품명</th>
+<th class="py-2 px-2 text-right">기본금리</th>
+<th class="py-2 px-3 text-right rounded-r">최고우대금리</th>
+</tr>
+</thead>
+<tbody class="divide-transparent">
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-2.5 px-3 font-semibold text-on-surface">OK저축은행</td>
+<td class="py-2.5 px-2">
+<div class="flex items-center gap-1">
+<span class="truncate max-w-[150px]">OK e-안심정기예금</span>
+<span class="bg-surface-container px-1 py-0.2 rounded text-[10px] text-secondary">단리</span>
+</div>
+</td>
+<td class="py-2.5 px-2 text-right font-label-code text-on-surface tabular-nums">3.60%</td>
+<td class="py-2.5 px-3 text-right font-label-code text-error font-bold tabular-nums">연 3.90%</td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-2.5 px-3 font-semibold text-on-surface">Sh수협은행</td>
+<td class="py-2.5 px-2">
+<div class="flex items-center gap-1">
+<span class="truncate max-w-[150px]">Sh첫만남우대예금</span>
+<span class="bg-primary/10 px-1 py-0.2 rounded text-[10px] text-primary font-semibold">1금융</span>
+</div>
+</td>
+<td class="py-2.5 px-2 text-right font-label-code text-on-surface tabular-nums">2.95%</td>
+<td class="py-2.5 px-3 text-right font-label-code text-error font-bold tabular-nums">연 3.85%</td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-2.5 px-3 font-semibold text-on-surface">DGB대구은행</td>
+<td class="py-2.5 px-2">
+<div class="flex items-center gap-1">
+<span class="truncate max-w-[150px]">DGB주거래우대예금</span>
+<span class="bg-primary/10 px-1 py-0.2 rounded text-[10px] text-primary font-semibold">1금융</span>
+</div>
+</td>
+<td class="py-2.5 px-2 text-right font-label-code text-on-surface tabular-nums">3.10%</td>
+<td class="py-2.5 px-3 text-right font-label-code text-error font-bold tabular-nums">연 3.80%</td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-2.5 px-3 font-semibold text-on-surface">전북은행</td>
+<td class="py-2.5 px-2">
+<div class="flex items-center gap-1">
+<span class="truncate max-w-[150px]">JB 1·2·3 정기예금</span>
+<span class="bg-primary/10 px-1 py-0.2 rounded text-[10px] text-primary font-semibold">1금융</span>
+</div>
+</td>
+<td class="py-2.5 px-2 text-right font-label-code text-on-surface tabular-nums">3.00%</td>
+<td class="py-2.5 px-3 text-right font-label-code text-error font-bold tabular-nums">연 3.75%</td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-2.5 px-3 font-semibold text-on-surface">NH농협은행</td>
+<td class="py-2.5 px-2">
+<div class="flex items-center gap-1">
+<span class="truncate max-w-[150px]">NH올원e예금</span>
+<span class="bg-primary/10 px-1 py-0.2 rounded text-[10px] text-primary font-semibold">1금융</span>
+</div>
+</td>
+<td class="py-2.5 px-2 text-right font-label-code text-on-surface tabular-nums">3.35%</td>
+<td class="py-2.5 px-3 text-right font-label-code text-error font-bold tabular-nums">연 3.65%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- 2. Recent 7 Days DART Key Disclosures -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">policy</span>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface">최근 7일 주요 공시 Dossier</h3>
+<p class="font-label-code text-label-sm text-outline">금융감독원 전자공시시스템(DART) 직연동</p>
+</div>
+</div>
+<span class="bg-surface-container text-on-surface-variant font-label-code text-label-sm px-2 py-0.5 rounded">실시간 수신중</span>
+</div>
+<div class="flex flex-col gap-space-sm font-body-sm text-body-sm">
+<div class="p-space-sm bg-surface-container-low rounded-lg flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-code text-label-sm">
+<span class="text-primary font-bold">SK하이닉스 (000660)</span>
+<span class="text-outline">10.06 15:42</span>
+</div>
+<div class="font-title-md text-on-surface font-semibold">
+              [기재정정] 단일판매·공급계약체결 (고대역폭메모리 장기공급 계약)
+            </div>
+<p class="text-on-surface-variant text-body-sm line-clamp-1">
+              확정 계약금액 3조 2,400억 원 상당의 HBM3E 글로벌 빅테크 공급 건에 관한 이행기한 변경 공시.
+            </p>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-code text-label-sm">
+<span class="text-primary font-bold">삼성SDI (006400)</span>
+<span class="text-outline">10.05 11:20</span>
+</div>
+<div class="font-title-md text-on-surface font-semibold">
+              신규시설투자 등 (전고체 배터리 라인 수원사업장 증설)
+            </div>
+<p class="text-on-surface-variant text-body-sm line-clamp-1">
+              투자금액 4,500억 원 규모, 차세대 솔리드스테이트 전지 생산 인프라 확보 목적.
+            </p>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-code text-label-sm">
+<span class="text-primary font-bold">LG에너지솔루션 (373220)</span>
+<span class="text-outline">10.04 17:05</span>
+</div>
+<div class="font-title-md text-on-surface font-semibold">
+              주요사항보고서 (유상증자 결정 관련 해외 합작법인 출자 증액)
+            </div>
+<p class="text-on-surface-variant text-body-sm line-clamp-1">
+              북미 합작법인 가동 일정 단축을 위한 시설대여금 납입 및 자본확충 세부내역.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Disclaimer Banner (Financial Notice) -->
+<section class="bg-surface-container-low rounded-xl p-space-md mb-space-lg flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[20px] shrink-0">verified_user</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        본 대시보드는 <strong>공공 오픈API 및 LLM 분석 알고리즘</strong>을 통해 산출된 정보 제공 목적의 서비스이며, 특정 금융투자상품의 매수·매도를 추천하지 않습니다.
+      </p>
+</div>
+<span class="font-label-code text-label-sm text-outline shrink-0 hidden sm:inline">DATA FEED ID: KRX-ECOS-DART-2026W41</span>
+</section>
+</div>
+<script>
+  // Micro-interaction: Interactive Star toggling for equities
+  document.querySelectorAll('button:has(.material-symbols-outlined)').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const icon = btn.querySelector('.material-symbols-outlined');
+      if (icon && (icon.textContent === 'star' || icon.textContent === 'star_border')) {
+        e.preventDefault();
+        if (icon.style.fontVariationSettings?.includes("'FILL' 1")) {
+          icon.style.fontVariationSettings = "'FILL' 0";
+          icon.classList.remove('text-amber-500');
+          icon.classList.add('text-outline');
+        } else {
+          icon.style.fontVariationSettings = "'FILL' 1";
+          icon.classList.remove('text-outline');
+          icon.classList.add('text-amber-500');
+        }
+      }
+    });
+  });
+</script></div></main><footer class="w-full bg-surface-container-lowest shadow-[0_-1px_8px_rgba(0,0,0,0.02)] mt-auto py-space-xl"><div class="max-w-[1440px] mx-auto px-margin-desktop flex flex-col gap-space-lg"><div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md text-primary font-bold">머니위클리</span><span class="font-label-code text-label-sm text-on-surface-variant">Data Intelligence Edition</span></div><div class="flex flex-wrap items-center gap-space-md font-label-code text-label-code text-on-surface-variant"><span class="font-semibold text-on-surface">데이터 공식 제공처:</span><span>금융감독원 전자공시시스템(DART)</span><span>·</span><span>한국거래소(KRX)</span><span>·</span><span>한국은행 경제통계시스템(ECOS)</span></div></div><div class="p-space-md bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface-variant leading-relaxed"><p class="font-semibold text-on-surface mb-0.5">법적 고지 및 투자 유의사항</p><p>본 서비스는 공공 데이터와 AI 언어 모델을 활용하여 제공되는 주간 금융 동향 분석 및 정보 제공 목적이며 특정 유가증권이나 금융상품에 대한 투자 권유 및 매매 추천이 아닙니다. 과거의 지표나 분석 결과가 미래의 수익률을 보장하지 않으며, 모든 투자 결정과 그에 따른 손익의 책임은 투자자 본인에게 귀속됩니다.</p></div><div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm font-body-sm text-body-sm text-outline"><p>© 2026 NextPlatform Inc. All rights reserved. 머니위클리는 넥스트플랫폼의 금융 인텔리전스 브랜드입니다.</p><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" href="#">이용약관</a><a class="hover:text-on-surface transition-colors font-semibold" href="#">개인정보처리방침</a><a class="hover:text-on-surface transition-colors" href="#">데이터 출처 및 산출기준</a></div></div></div></footer></body></html>
