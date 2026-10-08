@@ -2,7 +2,7 @@ import { volumeCV } from "@/lib/calc/attention";
 import { addDays, compactDate, isWeekend, isoDate, previousWeekdays, seoulToday } from "@/lib/calc/dates";
 import sectorMap from "@/data/sector-map.json";
 import { fetchKrxIndices, fetchMarketDay, isKosdaqDenied, KrxAuthError, type KrxQuote } from "@/lib/sources/krx";
-import type { RankChange, Top10Item, Top10Response } from "@/lib/types";
+import type { PricePoint, RankChange, Top10Item, Top10Response } from "@/lib/types";
 
 const themes = sectorMap as Record<string, string>;
 
@@ -51,25 +51,28 @@ function ranked(byDate: Map<string, KrxQuote[]>, asOf: string, universeSize: num
   if (!latest) return [];
   const universe = [...latest].sort((a, b) => b.marketCap - a.marketCap).slice(0, universeSize);
   const codes = new Set(universe.map((quote) => quote.code));
-  const series = new Map<string, KrxQuote[]>();
+  const series = new Map<string, PricePoint[]>();
   for (const date of dates) {
     for (const quote of byDate.get(date) ?? []) {
       if (!codes.has(quote.code)) continue;
       const list = series.get(quote.code) ?? [];
-      list.push(quote);
+      list.push({ date: isoDate(date), close: quote.close, volume: quote.volume, changePct: quote.changePct });
       series.set(quote.code, list);
     }
   }
 
   const scored = universe
     .map((quote) => {
-      const points = series.get(quote.code) ?? [quote];
+      const points = series.get(quote.code) ?? [
+        { date: isoDate(asOf), close: quote.close, volume: quote.volume, changePct: quote.changePct },
+      ];
       const volumes = points.map((point) => point.volume);
       const previous = points.length > 1 ? points[points.length - 2] : null;
       const volumeChangePct = previous && previous.volume > 0 ? ((quote.volume - previous.volume) / previous.volume) * 100 : 0;
       return {
         quote,
         previous,
+        points,
         score: volumes.length >= 5 ? volumeCV(volumes) : 0,
         volumeChangePct,
         sessions: volumes.length,
@@ -122,6 +125,7 @@ function ranked(byDate: Map<string, KrxQuote[]>, asOf: string, universeSize: num
       isPreferred: linkedCommon !== null,
       preferredCode: null,
       commonCode: linkedCommon,
+      points: entry.points,
     };
   });
 

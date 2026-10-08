@@ -14,6 +14,7 @@ export type KrxQuote = {
 type KrxRow = Record<string, string>;
 
 const CACHE_DIR = path.join(process.cwd(), ".cache", "krx");
+const memoryCache = new Map<string, KrxQuote[]>();
 
 export class KrxAuthError extends Error {
   constructor(message = "KRX가 이 서비스 호출을 거부했습니다(401).") {
@@ -42,6 +43,11 @@ function shortCode(row: KrxRow): string {
   return digits.padStart(6, "0");
 }
 
+export function findQuote(quotes: KrxQuote[], code: string): KrxQuote | undefined {
+  const key = code.trim().toUpperCase();
+  return quotes.find((quote) => quote.code === key);
+}
+
 function toQuote(row: KrxRow, market: string): KrxQuote | null {
   const code = shortCode(row);
   const name = row.ISU_ABBRV || row.ISU_NM;
@@ -67,10 +73,17 @@ async function readCache(file: string): Promise<KrxQuote[] | null> {
 }
 
 export async function fetchKrxDaily(market: "stk" | "ksq", basDd: string): Promise<KrxQuote[]> {
+  const memoryKey = `${market}-${basDd}`;
+  const remembered = memoryCache.get(memoryKey);
+  if (remembered) return remembered;
+
   await mkdir(CACHE_DIR, { recursive: true });
   const file = path.join(CACHE_DIR, `${market}-${basDd}.json`);
   const cached = await readCache(file);
-  if (cached) return cached;
+  if (cached) {
+    memoryCache.set(memoryKey, cached);
+    return cached;
+  }
 
   const endpoint = market === "stk" ? "sto/stk_bydd_trd" : "sto/ksq_bydd_trd";
   const response = await fetch(`https://data-dbg.krx.co.kr/svc/apis/${endpoint}?basDd=${basDd}`, {
@@ -88,7 +101,10 @@ export async function fetchKrxDaily(market: "stk" | "ksq", basDd: string): Promi
     .map((row) => toQuote(row, label))
     .filter((quote): quote is KrxQuote => quote !== null && quote.volume > 0 && quote.marketCap > 0);
 
-  if (quotes.length > 0) await writeFile(file, JSON.stringify(quotes));
+  if (quotes.length > 0) {
+    memoryCache.set(memoryKey, quotes);
+    await writeFile(file, JSON.stringify(quotes));
+  }
   return quotes;
 }
 

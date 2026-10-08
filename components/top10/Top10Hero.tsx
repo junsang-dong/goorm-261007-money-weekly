@@ -1,7 +1,7 @@
 "use client";
 
 import { Top10Card } from "@/components/top10/Top10Card";
-import type { Top10Response } from "@/lib/types";
+import type { IssueNote, Top10Response } from "@/lib/types";
 import { useState } from "react";
 
 export function Top10Hero({
@@ -9,14 +9,17 @@ export function Top10Hero({
   watchedCodes,
   onToggle,
   notice,
+  issues,
 }: {
   data: Top10Response;
   watchedCodes: Set<string>;
   onToggle?: (item: { code: string; name: string }) => void;
   notice?: string | null;
+  issues?: IssueNote[];
 }) {
   const [view, setView] = useState<"day" | "week">("day");
   const names = Object.fromEntries(data.items.map((item) => [item.code, item.name]));
+  const issueByCode = new Map((issues ?? []).map((issue) => [issue.code, issue]));
 
   return (
     <section>
@@ -67,6 +70,7 @@ export function Top10Hero({
             names={names}
             watched={watchedCodes.has(item.code)}
             onToggle={onToggle}
+            issue={issueByCode.get(item.code)}
           />
         ))}
       </div>

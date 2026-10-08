@@ -2,11 +2,37 @@
 
 한국 개인 재테크 이용자를 위한 주간 금융 브리핑 웹앱입니다. 거래량 변동성으로 본 유가증권 관심도 TOP10과 DART 공시를 한 화면에서 봅니다.
 
+![주간 브리핑](docs/screenshots/briefing.jpg)
+
+![관심도 카드와 30거래일 차트](docs/screenshots/top10-inline.jpg)
+
 ![메인 화면](docs/screenshots/home.jpg)
 
 ![관심도 TOP10 카드](docs/screenshots/top10-cards.jpg)
 
-기준일은 2026-10-06 KRX 장마감입니다. 종가·등락률·거래량은 유가증권 일별매매정보로 계산했습니다.
+로컬 기준일은 2026-10-07 KRX 장마감입니다. 종가·등락률·거래량은 유가증권 일별매매정보로 계산했습니다.
+
+## 이어서 한 작업
+
+- `/stock/[code]`에 종가, 등락률, 거래량, 시가총액, 30거래일 거래량·종가 차트, DART 공시, 보통주·우선주 연결을 넣었습니다.
+- 관심도 TOP10 카드는 누르지 않아도 기본 정보와 작은 30거래일 차트를 함께 보여 줍니다. 막대는 거래량, 선은 종가입니다.
+- `GET /api/market`와 `GET /api/products`로 한국은행 ECOS, 금감원 파인 예·적금을 연결했습니다. 키가 없으면 숫자를 만들지 않고 키 없음을 표시합니다.
+- 멀티 LLM 브리핑을 붙였습니다.
+  - Perplexity: TOP10 이슈와 주간 뉴스. 근거가 없으면 "확인된 이슈 없음".
+  - GPT: DART 공시 제목 분류. 실패하면 Claude가 대신합니다.
+  - Claude: 테마 두 줄, 3줄 요약, 주간 브리핑. 실패하면 GPT가 대신합니다.
+- 주간 브리핑은 마크다운 원문이 아니라 제목, 표, 목록으로 화면에 나옵니다. 등락률은 상승 빨강, 하락 파랑입니다.
+- 같은 관심 종목 조합의 브리핑은 7일간 재사용하고, 다시 생성은 하루 3회까지입니다.
+
+## 이어서 고친 오류
+
+| 증상 | 원인 | 수정 |
+| --- | --- | --- |
+| 로컬 목업 로그인이 새로고침 뒤 풀림 | Firebase 세션이 없을 때 저장해 둔 목업 사용자를 덮어씀 | 목업 로그인 값이 있으면 Firebase 빈 세션보다 그 값을 유지 |
+| 종목 상세의 30거래일 차트가 과거 구간만 담음 | 영업일 목록을 뒤집은 뒤 앞 30개만 남김 | 최근 30거래일을 고른 다음 과거→현재 순으로 그림 |
+| 삼성에피스홀딩스 코드 `0126Z0` 공시가 비음 | DART 기업코드 매핑이 숫자 6자리만 받음 | 영문이 섞인 코드는 매핑 실패로 안내하고 다른 종목 공시는 그대로 조회 |
+| Claude 브리핑이 잘린 JSON으로 보임 | 응답이 표 중간에서 끊겨 JSON 파싱이 실패함 | 토큰 한도를 늘리고, 잘려도 요약·본문을 복원. 복원이 안 되면 GPT가 작성 |
+| 예·적금 자료가 없는데 상품 문장이 생김 | 모델이 입력에 없는 금리를 적음 | 금리·예적금 원자료가 없으면 해당 절은 "자료 없음"만 쓰도록 지시 |
 
 ## 이번 작업
 
@@ -47,4 +73,4 @@ npm run dev
 
 ## 배포
 
-GitHub 저장소는 [junsang-dong/goorm-261007-money-weekly](https://github.com/junsang-dong/goorm-261007-money-weekly) 입니다. Vercel에서는 `NEXT_PUBLIC_FIREBASE_*`, `KRX_AUTH_KEY`, `DART_API_KEY`, `TOP10_SOURCE=krx`를 프로젝트 환경변수로 넣어야 로그인과 시세가 로컬과 같이 동작합니다.
+GitHub 저장소는 [junsang-dong/goorm-261007-money-weekly](https://github.com/junsang-dong/goorm-261007-money-weekly) 입니다. Vercel에서는 `NEXT_PUBLIC_FIREBASE_*`, `KRX_AUTH_KEY`, `DART_API_KEY`, `TOP10_SOURCE=krx`에 더해 `ECOS_API_KEY`, `FINLIFE_API_KEY`, `ANTHROPIC_API_KEY`, `ANTHROPIC_MODEL`, `OPENAI_API_KEY`, `OPENAI_MODEL`, `PERPLEXITY_API_KEY`, `PERPLEXITY_MODEL`을 프로젝트 환경변수로 넣어야 금리, 예·적금, 브리핑이 로컬과 같이 동작합니다.

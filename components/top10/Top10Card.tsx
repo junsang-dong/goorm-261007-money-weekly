@@ -1,5 +1,6 @@
+import { MiniVolumeChart } from "@/components/top10/MiniVolumeChart";
 import { formatPct, formatVolume, formatVolumeFull, isVolumeSpike } from "@/lib/format";
-import type { Top10Item } from "@/lib/types";
+import type { IssueNote, Top10Item } from "@/lib/types";
 import Link from "next/link";
 import { RankBadge, RankChangeMark } from "@/components/top10/RankBadge";
 
@@ -8,11 +9,13 @@ export function Top10Card({
   names,
   watched,
   onToggle,
+  issue,
 }: {
   item: Top10Item;
   names: Record<string, string>;
   watched: boolean;
   onToggle?: (item: Top10Item) => void;
+  issue?: IssueNote;
 }) {
   const spike = isVolumeSpike(item.volumeChangePct);
   const volumeTone = item.volumeChangePct > 0 ? "text-up" : item.volumeChangePct < 0 ? "text-down" : "text-muted";
@@ -43,6 +46,15 @@ export function Top10Card({
             </span>
           </div>
           <p className="mt-1 text-xs leading-snug text-muted">{item.note}</p>
+          {issue ? (
+            <p className="mt-1 text-xs leading-snug text-ink">
+              {issue.oneOff ? (
+                <span className="mr-1 rounded-sm bg-spike-bg px-1 py-0.5 text-[0.6875rem] font-semibold text-spike">일회성</span>
+              ) : null}
+              {issue.text}
+              {issue.citations.length > 0 ? <span className="text-muted"> [{issue.citations.join("][")}]</span> : null}
+            </p>
+          ) : null}
           {watched ? (
             <span className="mt-1 inline-block text-[0.6875rem] font-semibold text-navy">내 관심 종목</span>
           ) : null}
@@ -99,6 +111,14 @@ export function Top10Card({
             ) : null}
           </p>
         </div>
+      </div>
+      <div className="mt-3 border-t border-line pt-2">
+        <p className="text-[0.6875rem] text-muted">30거래일 · 막대 거래량 · 선 종가</p>
+        {item.points && item.points.length >= 2 ? (
+          <MiniVolumeChart points={item.points} />
+        ) : (
+          <p className="mt-1 text-xs text-muted">30거래일 시세가 없습니다.</p>
+        )}
       </div>
     </article>
   );

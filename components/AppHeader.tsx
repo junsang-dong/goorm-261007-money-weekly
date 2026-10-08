@@ -1,6 +1,7 @@
 "use client";
 
 import { useAuth } from "@/components/AuthProvider";
+import { MarketTicker } from "@/components/MarketTicker";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -12,8 +13,6 @@ const NAV = [
   { href: "/#watchlist", label: "내 관심종목" },
 ];
 
-const TICKER = ["KOSPI", "KOSDAQ", "기준금리", "국고채 3년", "원/달러"];
-
 export function AppHeader() {
   const pathname = usePathname();
   const { user } = useAuth();
@@ -21,16 +20,7 @@ export function AppHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-card/95 backdrop-blur">
-      <div className="flex h-10 items-center gap-4 overflow-x-auto border-b border-line-strong bg-tint px-4 font-mono text-[0.6875rem] text-muted md:px-10">
-        <span className="shrink-0 font-semibold tracking-wider">MARKET</span>
-        {TICKER.map((name) => (
-          <span key={name} className="shrink-0">
-            {name}
-            <span className="ml-1 text-ink/70">연동 전</span>
-          </span>
-        ))}
-        <span className="ml-auto hidden shrink-0 xl:inline">KRX 장마감 기준</span>
-      </div>
+      <MarketTicker />
       <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between gap-4 px-4 md:px-10">
         <div className="flex min-w-0 items-center gap-8">
           <Link href="/" className="shrink-0 font-serif text-xl font-semibold text-navy">

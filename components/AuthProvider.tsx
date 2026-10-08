@@ -64,7 +64,23 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
 
     return onAuthStateChanged(auth, (next) => {
-      setUser(next ? mapUser(next) : null);
+      if (next) {
+        setUser(mapUser(next));
+      } else if (devBypassEnabled) {
+        const raw = localStorage.getItem(DEV_USER_KEY);
+        if (raw) {
+          try {
+            setUser(JSON.parse(raw) as SessionUser);
+          } catch {
+            localStorage.removeItem(DEV_USER_KEY);
+            setUser(null);
+          }
+        } else {
+          setUser(null);
+        }
+      } else {
+        setUser(null);
+      }
       setReady(true);
     });
   }, []);
